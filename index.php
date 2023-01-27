@@ -29,7 +29,8 @@
             <label>Telefone 2:</label> <input type="number"> <br>
             <label>Email:</label><input type="email"><br>
             <label>Data de Atualização </label> <input type="date"><br><br><br>
-            <button type="submit">Enviar</button>
+            <button type="submit">Enviar</button><br><br><br>
+            <h1>Dados Enviados:</h1>
 
         </fieldset>
     </form>    
