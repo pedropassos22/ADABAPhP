@@ -15,6 +15,7 @@ include("conexao.php");
 
 
 <body>
+    <a href="/clientes.php">Voltar para a lista</a>
     <form action="" method="POST" class="produtoresgeral">
         <fieldset>
             <label>Nome:</label> <input required type="text" name="nome"><br> 
