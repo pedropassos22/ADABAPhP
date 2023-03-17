@@ -6,7 +6,7 @@ if(isset($_POST) > 0){
     $nome = $_POST['nome'];
     $cpf = $_POST['cpf'];
     $sexo = $_POST['sexo'];
-    $siapc = $_POST['siapc'];
+    $siapc = $_POST['siapec'];
     $endereco = $_POST['endereco'];
     $pr = $_POST['pr'];
     $telum = $_POST['telum'];
