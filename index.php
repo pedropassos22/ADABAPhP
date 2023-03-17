@@ -1,5 +1,20 @@
-<?php 
+<?php
+
 include("conexao.php");
+
+if(isset($_POST) > 0){
+    $nome = $_POST['nome'];
+    $cpf = $_POST['cpf'];
+    $sexo = $_POST['sexo'];
+    $siapc = $_POST['siapc'];
+    $endereco = $_POST['endereco'];
+    $pr = $_POST['pr'];
+    $telum = $_POST['telum'];
+    $teldois = $_POST['teldois'];
+    $email = $_POST['email'];
+    $dataatualizacao = $_POST['dataatualizacao'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,22 +33,22 @@ include("conexao.php");
     <a href="/clientes.php">Voltar para a lista</a>
     <form action="" method="POST" class="produtoresgeral">
         <fieldset>
-            <label>Nome:</label> <input required type="text" name="nome"><br> 
-            <label>CPF:</label> <input required type="number" name="cpf"><br>
+            <label>Nome:</label> <input type="text" name="nome"><br> 
+            <label>CPF:</label> <input type="number" name="cpf"><br>
             
            <fieldset name="sexo">
                 <p>Sexo:</p>
-                <label> <input required type="radio" name="sexo" value="M"> Masculino </label>
-                <label> <input required type="radio" name="sexo" value="F"> Feminino </label>
+                <label> <input type="radio" name="sexo" value="M"> Masculino </label>
+                <label> <input type="radio" name="sexo" value="F"> Feminino </label>
             </fieldset>
             
             <label>SIAPEC:</label> <input type="number" name="siapec"><br>
             <label>Endereço:</label> <input type="text" name="endereco"><br>
-            <label>Propriedade Rual:</label><input required type="text" name="pr"><br>
-            <label>Telefone 1:</label> <input required type="number" name="telum"> <br>
+            <label>Propriedade Rual:</label><input type="text" name="pr"><br>
+            <label>Telefone 1:</label> <input type="number" name="telum"> <br>
             <label>Telefone 2:</label> <input type="number" name="teldois"> <br>
             <label>Email:</label><input type="email" name="email"><br>
-            <label>Data de Atualização </label> <input required type="date" name="dataatualizacao"><br><br><br>
+            <label>Data de Atualização </label> <input type="date" name="dataatualizacao"><br><br><br>
             <button type="submit" name="enviar">Enviar</button><br><br><br>
             
             <h1>Dados Enviados:</h1>
