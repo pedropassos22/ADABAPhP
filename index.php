@@ -2,7 +2,9 @@
 
 include("conexao.php");
 
-if(isset($_POST) > 0){
+$erro = false;
+
+if(isset($_POST) > 0) {
     $nome = $_POST['nome'];
     $cpf = $_POST['cpf'];
     $sexo = $_POST['sexo'];
@@ -13,6 +15,37 @@ if(isset($_POST) > 0){
     $teldois = $_POST['teldois'];
     $email = $_POST['email'];
     $dataatualizacao = $_POST['dataatualizacao'];
+
+    if(empty($nome)) {
+        $erro = "Preencha o Nome!";
+    }
+    if(empty($cpf)) {
+        $erro = "Preencha o CPF!";
+    }
+    if(empty($sexo)) {
+        $erro = "Preencha o Sexo!";
+    }
+    if(empty($siapec)) {
+        $erro = "Preencha o SIAPEC";
+    }
+    if(empty($endereco)) {
+        $erro = "Preencha o Endereço!";
+    }
+    if(empty($pr)) {
+        $erro = "Preencha a Propriedade";
+    }
+    if(empty($telum)) {
+        $erro = "Preencha o Telefone!";
+    }
+    if(empty($email)) {
+        $erro = "Preencha o Email!";
+    }
+    if(empty($dataatualizacao)) {
+        $erro = "Preencha a data de hoje!";
+    }
+    if($erro) {
+        echo "<p><b>$erro<b/></p>";
+    }
 }
 
 ?>
@@ -33,8 +66,8 @@ if(isset($_POST) > 0){
     <a href="/clientes.php">Voltar para a lista</a>
     <form action="" method="POST" class="produtoresgeral">
         <fieldset>
-            <label>Nome:</label> <input type="text" name="nome"><br> 
-            <label>CPF:</label> <input type="number" name="cpf"><br>
+            <label>Nome:</label> <input value="<?php if(isset($_POST['nome'])) echo $_POST['nome']; ?>" type="text" name="nome"><br> 
+            <label>CPF:</label> <input value="<?php if(isset($_POST['cpf'])) echo $_POST['cpf']; ?>" type="number" name="cpf"><br>
             
            <fieldset name="sexo">
                 <p>Sexo:</p>
@@ -42,18 +75,18 @@ if(isset($_POST) > 0){
                 <label> <input type="radio" name="sexo" value="F"> Feminino </label>
             </fieldset>
             
-            <label>SIAPEC:</label> <input type="number" name="siapec"><br>
-            <label>Endereço:</label> <input type="text" name="endereco"><br>
-            <label>Propriedade Rual:</label><input type="text" name="pr"><br>
-            <label>Telefone 1:</label> <input type="number" name="telum"> <br>
-            <label>Telefone 2:</label> <input type="number" name="teldois"> <br>
-            <label>Email:</label><input type="email" name="email"><br>
-            <label>Data de Atualização </label> <input type="date" name="dataatualizacao"><br><br><br>
+            <label>SIAPEC:</label> <input value="<?php if(isset($_POST['siapec'])) echo $_POST['siapec']; ?>" type="number" name="siapec"><br>
+            <label>Endereço:</label> <input value="<?php if(isset($_POST['endereco'])) echo $_POST['endereco']; ?>" type="text" name="endereco"><br>
+            <label>Propriedade Rual:</label><input value="<?php if(isset($_POST['pr'])) echo $_POST['pr']; ?>" type="text" name="pr"><br>
+            <label>Telefone 1:</label> <input value="<?php if(isset($_POST['telum'])) echo $_POST['telum']; ?>" type="number" name="telum"> <br>
+            <label>Telefone 2:</label> <input value="<?php if(isset($_POST['teldois'])) echo $_POST['teldois']; ?>" type="number" name="teldois"> <br>
+            <label>Email:</label><input value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" type="email" name="email"><br>
+            <label>Data de Atualização </label> <input value="<?php if(isset($_POST['dataatualizacao'])) echo $_POST['dataatualizacao']; ?>" type="date" name="dataatualizacao"><br><br><br>
             <button type="submit" name="enviar">Enviar</button><br><br><br>
             
             <h1>Dados Enviados:</h1>
 
-            <?php 
+            <?php /*
                 if(isset($_POST['enviar'])) {
                     echo "<p><b>Nome: </b>" . $_POST['nome'] . "</p>";
                     echo "<p><b> CPF: </b>" . $_POST['cpf'] . "</p>";
@@ -66,7 +99,7 @@ if(isset($_POST) > 0){
                     echo "<p><b> Email: </b>" . $_POST['email'] . "</p>";
                     echo "<p><b> Data de Atualização: </b>" . $_POST['dataatualizacao'] . "</p>";
                 }   
-
+                */
             ?>
 
         </fieldset>
