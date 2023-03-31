@@ -107,7 +107,8 @@ if(count ($_POST) > 0) {
             <label>Data de Atualização </label> <input value="<?php if(isset($_POST['dataatualizacao'])) echo $_POST['dataatualizacao']; ?>" type="date" name="dataatualizacao"><br><br><br>
             <button type="submit" name="enviar">Enviar</button><br><br><br>
             
-            <h1>Dados Enviados:</h1>
+            <!-- <h1>Dados Enviados:</h1> -->
+        
 
             <?php /*
                 if(isset($_POST['enviar'])) {
