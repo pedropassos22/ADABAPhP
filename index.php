@@ -1,14 +1,24 @@
 <?php
 
-include("conexao.php");
+function limpar_texto($str){ 
+    return preg_replace("/[^0-9]/", "", $str); 
+  }
 
-$erro = false;
 
-if(isset($_POST) > 0) {
+
+
+
+if(count ($_POST) > 0) {
+    
+    include("conexao.php"); 
+    
+    $erro = false;
+
+
     $nome = $_POST['nome'];
     $cpf = $_POST['cpf'];
     $sexo = $_POST['sexo'];
-    $siapc = $_POST['siapec'];
+    $siapec = $_POST['siapec'];
     $endereco = $_POST['endereco'];
     $pr = $_POST['pr'];
     $telum = $_POST['telum'];
@@ -35,7 +45,9 @@ if(isset($_POST) > 0) {
         $erro = "Preencha a Propriedade";
     }
     if(empty($telum)) {
-        $erro = "Preencha o Telefone!";
+        $telum = limpar_texto($telum);
+        if (strlen($telum) != 11)
+        $erro = "O Telefone deve ser preenchido no padrão (00) 0 0000-0000";
     }
     if(empty($email)) {
         $erro = "Preencha o Email!";
@@ -43,10 +55,20 @@ if(isset($_POST) > 0) {
     if(empty($dataatualizacao)) {
         $erro = "Preencha a data de hoje!";
     }
+
     if($erro) {
         echo "<p><b>$erro<b/></p>";
+    } else {
+        $sql_code = "INSERT INTO produtores (nome, cpf, sexo, siapec, endereco, propriedade_rural, telefoneum, telefonedois, email, dataatualizada)
+        VALUES('$nome', '$cpf', '$sexo', '$siapec', '$endereco', '$pr', '$telum', '$teldois', '$email', NOW())";
+        $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
+        if($deu_certo){
+            echo "<p><b> Produtor Cadastrado </p></b>";
+            unset($_POST);
+        }
     }
 }
+
 
 ?>
 
@@ -71,6 +93,7 @@ if(isset($_POST) > 0) {
             
            <fieldset name="sexo">
                 <p>Sexo:</p>
+                <label> <input type="radio" name="sexo" value="B" CHECKED> Não Definido </label>
                 <label> <input type="radio" name="sexo" value="M"> Masculino </label>
                 <label> <input type="radio" name="sexo" value="F"> Feminino </label>
             </fieldset>
@@ -78,7 +101,7 @@ if(isset($_POST) > 0) {
             <label>SIAPEC:</label> <input value="<?php if(isset($_POST['siapec'])) echo $_POST['siapec']; ?>" type="number" name="siapec"><br>
             <label>Endereço:</label> <input value="<?php if(isset($_POST['endereco'])) echo $_POST['endereco']; ?>" type="text" name="endereco"><br>
             <label>Propriedade Rual:</label><input value="<?php if(isset($_POST['pr'])) echo $_POST['pr']; ?>" type="text" name="pr"><br>
-            <label>Telefone 1:</label> <input value="<?php if(isset($_POST['telum'])) echo $_POST['telum']; ?>" type="number" name="telum"> <br>
+            <label>Telefone 1:</label> <input placeholder=" " value="<?php if(isset($_POST['telum'])) echo $_POST['telum']; ?>" type="number" name="telum"> <br>
             <label>Telefone 2:</label> <input value="<?php if(isset($_POST['teldois'])) echo $_POST['teldois']; ?>" type="number" name="teldois"> <br>
             <label>Email:</label><input value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" type="email" name="email"><br>
             <label>Data de Atualização </label> <input value="<?php if(isset($_POST['dataatualizacao'])) echo $_POST['dataatualizacao']; ?>" type="date" name="dataatualizacao"><br><br><br>
