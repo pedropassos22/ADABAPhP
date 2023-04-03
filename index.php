@@ -85,7 +85,7 @@ if(count ($_POST) > 0) {
 
 
 <body>
-    <a href="/clientes.php">Voltar para a lista</a>
+    <a href="/produtores.php">Voltar para a lista</a>
     <form action="" method="POST" class="produtoresgeral">
         <fieldset>
             <label>Nome:</label> <input value="<?php if(isset($_POST['nome'])) echo $_POST['nome']; ?>" type="text" name="nome"><br> 
