@@ -31,7 +31,8 @@ $num_produtores = $query_produtores->num_rows;
             <th>Telefone Principal</th>
             <th>Telefone Secundário</th>
             <th>Email</th>
-            <th></th>
+            <th>Data da Atualização</th>
+            <th>Ações</th>
         </thead>
         <!--<thead>
             <th></th>
@@ -46,25 +47,34 @@ $num_produtores = $query_produtores->num_rows;
             <th></th>
             <th></th>-->
         <tbody>
-            <?php if ($num_produtores == 2) { ?>
+            <?php if ($num_produtores == 0) { ?>
                 <tr>
-                    <td colspan="11">Nenhum Cliente Foi Cadastrado!</td>
+                    <td colspan="12">Nenhum Cliente Foi Cadastrado!</td>
                 </tr> 
-            <?php } else { ?>
+            <?php } else { 
+                while ($produrores = $query_produtores->fetch_assoc()) {
+                    ?>
 
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <?php } ?>
+                <tr>
+                    <td><?php echo $produrores['id']; ?></td>
+                    <td><?php echo $produrores['nome']; ?></td>
+                    <td><?php echo $produrores['cpf']; ?></td>
+                    <td><?php echo $produrores['sexo']; ?></td>
+                    <td><?php echo $produrores['siapec']; ?></td>
+                    <td><?php echo $produrores['endereco']; ?></td>
+                    <td><?php echo $produrores['propriedade_rural']; ?></td>
+                    <td><?php echo $produrores['telefoneum']; ?></td>
+                    <td><?php echo $produrores['telefonedois']; ?></td>
+                    <td><?php echo $produrores['email']; ?></td>
+                    <td><?php echo $produrores['dataatualizada']; ?></td>
+                    <td>
+                    <a href=""> Editar </a>
+                    <a href=""> Deletar </a>
+                    </td>
+                </tr>
+            <?php
+                }
+            } ?>
         </tbody>
 
 

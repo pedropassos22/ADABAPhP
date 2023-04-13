@@ -26,15 +26,19 @@ if(count ($_POST) > 0) {
     $email = $_POST['email'];
     $dataatualizacao = $_POST['dataatualizacao'];
 
+
+    if ($sexo == "B") {
+         $erro = "Defina o Sexo";
+    }
     if(empty($nome)) {
         $erro = "Preencha o Nome!";
     }
     if(empty($cpf)) {
         $erro = "Preencha o CPF!";
     }
-    if(empty($sexo)) {
-        $erro = "Preencha o Sexo!";
-    }
+    //if(empty($sexo)) {
+    //    $erro = "Preencha o Sexo!";
+   // }
     if(empty($siapec)) {
         $erro = "Preencha o SIAPEC";
     }
