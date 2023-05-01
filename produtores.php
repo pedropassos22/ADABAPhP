@@ -18,6 +18,7 @@ $num_produtores = $query_produtores->num_rows;
 <body>
 
     <h1>LISTA DE PRODUTORES</h1>
+    <a href="index.php">Voltar para cadastros</a>
     <p>ESTES SÃO OS CLIENTES CADASTRADOS NO SISTEMA:</p>
     <table border="1" cellpadding="10">
         <thead>
@@ -68,8 +69,8 @@ $num_produtores = $query_produtores->num_rows;
                     <td><?php echo $produrores['email']; ?></td>
                     <td><?php echo $produrores['dataatualizada']; ?></td>
                     <td>
-                    <a href=""> Editar </a>
-                    <a href=""> Deletar </a>
+                    <a href="editar_produtor.php?id=<?php echo $produrores['id']; ?>"> Editar </a>
+                    <a href="deletar_produtor.php?id=<?php echo $produrores['id']; ?>"> Deletar </a>
                     </td>
                 </tr>
             <?php
