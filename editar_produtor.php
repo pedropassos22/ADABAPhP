@@ -66,7 +66,7 @@ if(count ($_POST) > 0) {
     if($erro) {
         echo "<p><b>$erro<b/></p>";
     } else {
-        $sql_code = "INSERT INTO produtores (nome, cpf, sexo, siapec, endereco, propriedade_rural, telefoneum, telefonedois, email, dataatualizada)
+        $sql_code = "INSERT INTO produtores (nome, cpf, sexo, siapec, endereco, propriedaderural, telum, teldois, email, dataatualizada)
         VALUES('$nome', '$cpf', '$sexo', '$siapec', '$endereco', '$pr', '$telum', '$teldois', '$email', NOW())";
         $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
         if($deu_certo){
@@ -111,9 +111,9 @@ if(count ($_POST) > 0) {
             
             <label>SIAPEC:</label> <input value="<?php echo $produtores['siapec']; ?>" type="number" name="siapec"><br>
             <label>Endereço:</label> <input value="<?php echo $produtores['endereco']; ?>" type="text" name="endereco"><br>
-            <label>Propriedade Rual:</label><input value="<?php echo $produtores['propriedade_rural']; ?>" type="text" name="pr"><br>
-            <label>Telefone 1:</label> <input placeholder=" " value="<?php echo $produtores['telefoneum']; ?>" type="number" name="telum"> <br>
-            <label>Telefone 2:</label> <input value="<?php echo $produtores['telefonedois']; ?>" type="number" name="teldois"> <br>
+            <label>Propriedade Rual:</label><input value="<?php echo $produtores['propriedaderural']; ?>" type="text" name="pr"><br>
+            <label>Telefone 1:</label> <input placeholder=" " value="<?php echo $produtores['telum']; ?>" type="number" name="telum"> <br>
+            <label>Telefone 2:</label> <input value="<?php echo $produtores['teldois']; ?>" type="number" name="teldois"> <br>
             <label>Email:</label><input value="<?php echo $produtores['email']; ?>" type="email" name="email"><br>
             <label>Data de Atualização </label> <input value="<?php echo $produtores['dataatualizada']; ?>" type="date" name="dataatualizacao"><br><br><br>
             <button type="submit" name="enviar">Enviar</button><br><br><br>
