@@ -1,7 +1,7 @@
 <?php
 
 include("conexao.php"); 
-
+$id = intval($_GET['id']);
 
 
 
@@ -23,7 +23,7 @@ if(count ($_POST) > 0) {
     $sexo = $_POST['sexo'];
     $siapec = $_POST['siapec'];
     $endereco = $_POST['endereco'];
-    $pr = $_POST['pr'];
+    $propriedaderural = $_POST['propriedaderural'];
     $telum = $_POST['telum'];
     $teldois = $_POST['teldois'];
     $email = $_POST['email'];
@@ -48,7 +48,7 @@ if(count ($_POST) > 0) {
     if(empty($endereco)) {
         $erro = "Preencha o Endereço!";
     }
-    if(empty($pr)) {
+    if(empty($propriedaderural)) {
         $erro = "Preencha a Propriedade";
     }
     if(empty($telum)) {
@@ -66,17 +66,26 @@ if(count ($_POST) > 0) {
     if($erro) {
         echo "<p><b>$erro<b/></p>";
     } else {
-        $sql_code = "INSERT INTO produtores (nome, cpf, sexo, siapec, endereco, propriedaderural, telum, teldois, email, dataatualizada)
-        VALUES('$nome', '$cpf', '$sexo', '$siapec', '$endereco', '$pr', '$telum', '$teldois', '$email', NOW())";
+        $sql_code = "UPDATE produtores
+        SET nome = '$nome', 
+        cpf = '$cpf',
+        sexo = '$sexo',
+        siapec = '$siapec',
+        endereco = '$endereco',
+        propriedaderural = '$propriedaderural',
+        telum = '$telum',
+        teldois = '$teldois',
+        email = '$email'
+        WHERE id = '$id'";
         $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
-        if($deu_certo){
-            echo "<p><b> Produtor Cadastrado </p></b>";
+        if($deu_certo) {
+            echo "<p><b> Produtor Ataulizado! </p></b>";
             unset($_POST);
         }
     }
 }
 
-    $id = intval($_GET['id']);
+    
     $sql_produtores = "SELECT * FROM produtores WHERE id ='$id'";
     $query_produtores = $mysqli->query($sql_produtores) or die($mysqli->error);
     $produtores = $query_produtores->fetch_assoc();
@@ -111,7 +120,7 @@ if(count ($_POST) > 0) {
             
             <label>SIAPEC:</label> <input value="<?php echo $produtores['siapec']; ?>" type="number" name="siapec"><br>
             <label>Endereço:</label> <input value="<?php echo $produtores['endereco']; ?>" type="text" name="endereco"><br>
-            <label>Propriedade Rual:</label><input value="<?php echo $produtores['propriedaderural']; ?>" type="text" name="pr"><br>
+            <label>Propriedade Rual:</label><input value="<?php echo $produtores['propriedaderural']; ?>" type="text" name="propriedaderural"><br>
             <label>Telefone 1:</label> <input placeholder=" " value="<?php echo $produtores['telum']; ?>" type="number" name="telum"> <br>
             <label>Telefone 2:</label> <input value="<?php echo $produtores['teldois']; ?>" type="number" name="teldois"> <br>
             <label>Email:</label><input value="<?php echo $produtores['email']; ?>" type="email" name="email"><br>

@@ -63,7 +63,7 @@ $num_produtores = $query_produtores->num_rows;
                     <td><?php echo $produrores['sexo']; ?></td>
                     <td><?php echo $produrores['siapec']; ?></td>
                     <td><?php echo $produrores['endereco']; ?></td>
-                    <td><?php echo $produrores['propriedaderueal']; ?></td>
+                    <td><?php echo $produrores['propriedaderural']; ?></td>
                     <td><?php echo $produrores['telum']; ?></td>
                     <td><?php echo $produrores['teldois']; ?></td>
                     <td><?php echo $produrores['email']; ?></td>
