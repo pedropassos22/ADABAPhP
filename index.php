@@ -24,7 +24,7 @@ if(count ($_POST) > 0) {
     $telum = $_POST['telum'];
     $teldois = $_POST['teldois'];
     $email = $_POST['email'];
-    $dataatualizada = $_POST['dataatualizacao'];
+    $dataatualizada = $_POST['dataatualizada'];
 
 
     if ($sexo == "B") {
@@ -63,7 +63,7 @@ if(count ($_POST) > 0) {
     if($erro) {
         echo "<p><b>$erro<b/></p>";
     } else {
-        $sql_code = "INSERT INTO produtores (nome, cpf, sexo, siapec, endereco, propriedaderural, telefoneum, telefonedois, email, dataatualizada)
+        $sql_code = "INSERT INTO produtores (nome, cpf, sexo, siapec, endereco, propriedaderural, telum, teldois, email, dataatualizada)
         VALUES('$nome', '$cpf', '$sexo', '$siapec', '$endereco', '$propriedaderural', '$telum', '$teldois', '$email', NOW())";
         $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
         if($deu_certo){
@@ -104,7 +104,7 @@ if(count ($_POST) > 0) {
             
             <label>SIAPEC:</label> <input value="<?php if(isset($_POST['siapec'])) echo $_POST['siapec']; ?>" type="number" name="siapec"><br>
             <label>Endereço:</label> <input value="<?php if(isset($_POST['endereco'])) echo $_POST['endereco']; ?>" type="text" name="endereco"><br>
-            <label>Propriedade Rual:</label><input value="<?php if(isset($_POST['propriedaderural'])) echo $_POST['propriedaderural']; ?>" type="text" name="pr"><br>
+            <label>Propriedade Rual:</label><input value="<?php if(isset($_POST['propriedaderural'])) echo $_POST['propriedaderural']; ?>" type="text" name="propriedaderural"><br>
             <label>Telefone 1:</label> <input placeholder=" " value="<?php if(isset($_POST['telum'])) echo $_POST['telum']; ?>" type="number" name="telum"> <br>
             <label>Telefone 2:</label> <input value="<?php if(isset($_POST['teldois'])) echo $_POST['teldois']; ?>" type="number" name="teldois"> <br>
             <label>Email:</label><input value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" type="email" name="email"><br>
