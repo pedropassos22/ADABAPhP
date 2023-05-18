@@ -20,11 +20,11 @@ if(count ($_POST) > 0) {
     $sexo = $_POST['sexo'];
     $siapec = $_POST['siapec'];
     $endereco = $_POST['endereco'];
-    $pr = $_POST['pr'];
+    $propriedaderural = $_POST['propriedaderural'];
     $telum = $_POST['telum'];
     $teldois = $_POST['teldois'];
     $email = $_POST['email'];
-    $dataatualizacao = $_POST['dataatualizacao'];
+    $dataatualizada = $_POST['dataatualizacao'];
 
 
     if ($sexo == "B") {
@@ -45,7 +45,7 @@ if(count ($_POST) > 0) {
     if(empty($endereco)) {
         $erro = "Preencha o Endereço!";
     }
-    if(empty($pr)) {
+    if(empty($propriedaderural)) {
         $erro = "Preencha a Propriedade";
     }
     if(empty($telum)) {
@@ -56,15 +56,15 @@ if(count ($_POST) > 0) {
     if(empty($email)) {
         $erro = "Preencha o Email!";
     }
-    if(empty($dataatualizacao)) {
+    if(empty($dataatualizada)) {
         $erro = "Preencha a data de hoje!";
     }
 
     if($erro) {
         echo "<p><b>$erro<b/></p>";
     } else {
-        $sql_code = "INSERT INTO produtores (nome, cpf, sexo, siapec, endereco, propriedade_rural, telefoneum, telefonedois, email, dataatualizada)
-        VALUES('$nome', '$cpf', '$sexo', '$siapec', '$endereco', '$pr', '$telum', '$teldois', '$email', NOW())";
+        $sql_code = "INSERT INTO produtores (nome, cpf, sexo, siapec, endereco, propriedaderural, telefoneum, telefonedois, email, dataatualizada)
+        VALUES('$nome', '$cpf', '$sexo', '$siapec', '$endereco', '$propriedaderural', '$telum', '$teldois', '$email', NOW())";
         $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
         if($deu_certo){
             echo "<p><b> Produtor Cadastrado </p></b>";
@@ -104,11 +104,11 @@ if(count ($_POST) > 0) {
             
             <label>SIAPEC:</label> <input value="<?php if(isset($_POST['siapec'])) echo $_POST['siapec']; ?>" type="number" name="siapec"><br>
             <label>Endereço:</label> <input value="<?php if(isset($_POST['endereco'])) echo $_POST['endereco']; ?>" type="text" name="endereco"><br>
-            <label>Propriedade Rual:</label><input value="<?php if(isset($_POST['pr'])) echo $_POST['pr']; ?>" type="text" name="pr"><br>
+            <label>Propriedade Rual:</label><input value="<?php if(isset($_POST['propriedaderural'])) echo $_POST['propriedaderural']; ?>" type="text" name="pr"><br>
             <label>Telefone 1:</label> <input placeholder=" " value="<?php if(isset($_POST['telum'])) echo $_POST['telum']; ?>" type="number" name="telum"> <br>
             <label>Telefone 2:</label> <input value="<?php if(isset($_POST['teldois'])) echo $_POST['teldois']; ?>" type="number" name="teldois"> <br>
             <label>Email:</label><input value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" type="email" name="email"><br>
-            <label>Data de Atualização </label> <input value="<?php if(isset($_POST['dataatualizacao'])) echo $_POST['dataatualizacao']; ?>" type="date" name="dataatualizacao"><br><br><br>
+            <label>Data de Atualização </label> <input value="<?php if(isset($_POST['dataatualizada'])) echo $_POST['dataatualizada']; ?>" type="date" name="dataatualizada"><br><br><br>
             <button type="submit" name="enviar">Enviar</button><br><br><br>
             
             <!-- <h1>Dados Enviados:</h1> -->
