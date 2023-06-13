@@ -22,18 +22,15 @@ $num_produtores = $query_produtores->num_rows;
     <p>ESTES SÃO OS CLIENTES CADASTRADOS NO SISTEMA:</p>
     <table border="1" cellpadding="10">
         <thead>
-            <th>ID</th>
             <th>Nome</th>
             <th>CPF</th>
-            <th>Sexo</th>
             <th>SIAPEC</th>
             <th>Endereço</th>
             <th>Propriedade Rural</th>
             <th>Telefone Principal</th>
-            <th>Telefone Secundário</th>
+            <!--<th>Telefone Secundário</th>-->
             <th>Email</th>
             <th>Data da Atualização</th>
-            <th>Ações</th>
         </thead>
         <!--<thead>
             <th></th>
@@ -50,7 +47,7 @@ $num_produtores = $query_produtores->num_rows;
         <tbody>
             <?php if ($num_produtores == 0) { ?>
                 <tr>
-                    <td colspan="12">Nenhum Cliente Foi Cadastrado!</td>
+                    <td colspan="8">Nenhum Cliente Foi Cada strado!</td>
                 </tr> 
             <?php } else { 
                 while ($produrores = $query_produtores->fetch_assoc()) {

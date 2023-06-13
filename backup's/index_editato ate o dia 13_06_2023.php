@@ -1,5 +1,4 @@
 <?php
-date_default_timezone_set('America/Sao_Paulo'); // Data e Horário Padrão
 
 function limpar_texto($str){ 
     return preg_replace("/[^0-9]/", "", $str); 
@@ -16,16 +15,16 @@ if(count ($_POST) > 0) {
     $erro = false;
 
 
-    $siapec = $_POST['siapec'];
     $nome = $_POST['nome'];
     $cpf = $_POST['cpf'];
     $sexo = $_POST['sexo'];
+    $siapec = $_POST['siapec'];
     $endereco = $_POST['endereco'];
     $propriedaderural = $_POST['propriedaderural'];
     $telum = $_POST['telum'];
     $teldois = $_POST['teldois'];
     $email = $_POST['email'];
-    $dataatualizada = date('Y-m-d H:i');
+    $dataatualizada = $_POST['dataatualizada'];
 
 
     if ($sexo == "B") {
@@ -56,6 +55,9 @@ if(count ($_POST) > 0) {
     }
     if(empty($email)) {
         $erro = "Preencha o Email!";
+    }
+    if(empty($dataatualizada)) {
+        $erro = "Preencha a data de hoje!";
     }
 
     if($erro) {
@@ -105,8 +107,8 @@ if(count ($_POST) > 0) {
             <label>Propriedade Rual:</label><input value="<?php if(isset($_POST['propriedaderural'])) echo $_POST['propriedaderural']; ?>" type="text" name="propriedaderural"><br>
             <label>Telefone 1:</label> <input placeholder=" " value="<?php if(isset($_POST['telum'])) echo $_POST['telum']; ?>" type="number" name="telum"> <br>
             <label>Telefone 2:</label> <input value="<?php if(isset($_POST['teldois'])) echo $_POST['teldois']; ?>" type="number" name="teldois"> <br>
-            <label>Email:</label> <input value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" type="email" name="email"><br>
-            
+            <label>Email:</label><input value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" type="email" name="email"><br>
+            <label>Data de Atualização </label> <input value="<?php if(isset($_POST['dataatualizada'])) echo $_POST['dataatualizada']; ?>" type="date" name="dataatualizada"><br><br><br>
             <button type="submit" name="enviar">Enviar</button><br><br><br>
             
             <!-- <h1>Dados Enviados:</h1> -->

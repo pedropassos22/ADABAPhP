@@ -3,7 +3,7 @@
 $hostname = "localhost";
 $usuario = "root";
 $senha = "";
-$bancodedados = "adabbacg";
+$bancodedados = "adabba";
 
 $mysqli = new mysqli($hostname, $usuario,  $senha, $bancodedados);
 if ($mysqli->connect_errno) {
