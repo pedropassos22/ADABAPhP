@@ -31,6 +31,7 @@ $num_produtores = $query_produtores->num_rows;
             <!--<th>Telefone Secundário</th>-->
             <th>Email</th>
             <th>Data da Atualização</th>
+            <th>Ações</th>
         </thead>
         <!--<thead>
             <th></th>
@@ -54,15 +55,15 @@ $num_produtores = $query_produtores->num_rows;
                     ?>
 
                 <tr>
-                    <td><?php echo $produrores['id']; ?></td>
+                    <!--<td><?php echo $produrores['id']; ?></td>-->
                     <td><?php echo $produrores['nome']; ?></td>
                     <td><?php echo $produrores['cpf']; ?></td>
-                    <td><?php echo $produrores['sexo']; ?></td>
                     <td><?php echo $produrores['siapec']; ?></td>
+                    <!--<td><td><?php echo $produrores['sexo']; ?></td></td>-->
                     <td><?php echo $produrores['endereco']; ?></td>
                     <td><?php echo $produrores['propriedaderural']; ?></td>
                     <td><?php echo $produrores['telum']; ?></td>
-                    <td><?php echo $produrores['teldois']; ?></td>
+                    <!--<td><td><?php echo $produrores['teldois']; ?></td></td>-->
                     <td><?php echo $produrores['email']; ?></td>
                     <td><?php echo $produrores['dataatualizada']; ?></td>
                     <td>
